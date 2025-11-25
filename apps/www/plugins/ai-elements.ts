@@ -23,6 +23,7 @@ import {
   Queue,
   QueueCustom,
   QueuePromptInput,
+  Reasoning,
   Shimmer,
   ShimmerCustomElements,
   ShimmerDurations,
@@ -36,6 +37,7 @@ import {
   ToolInputStreaming,
   ToolOutputAvailable,
   ToolOutputError,
+  WebPreview,
   Workflow,
 } from '@repo/examples'
 
@@ -86,4 +88,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   vueApp.component('ConfirmationAccepted', ConfirmationAccepted)
   vueApp.component('ConfirmationRejected', ConfirmationRejected)
   vueApp.component('ConfirmationRequest', ConfirmationRequest)
+  vueApp.component('Reasoning', Reasoning)
+  vueApp.component('WebPreview', WebPreview)
 })

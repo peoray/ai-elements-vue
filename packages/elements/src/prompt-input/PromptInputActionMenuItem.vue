@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { DropdownMenuItem } from '@repo/shadcn-vue/components/ui/dropdown-menu'
 import { cn } from '@repo/shadcn-vue/lib/utils'
 
 const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>
 
 <template>
-  <div :class="cn('flex items-center gap-1', props.class)">
+  <DropdownMenuItem :class="cn(props.class)">
     <slot />
-  </div>
+  </DropdownMenuItem>
 </template>

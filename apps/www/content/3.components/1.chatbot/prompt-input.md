@@ -1,12 +1,12 @@
 ---
 title: Prompt Input
-description:
-icon: lucide:send
+description: Allows a user to send a message with file attachments to a large language model. It includes a textarea, file upload capabilities, a submit button, and a dropdown for selecting the model.
+icon: lucide:corner-down-left
 ---
 
 The `PromptInput` component allows a user to send a message to a large language model. It includes a textarea, a submit button, and a dropdown for selecting the model.
 
-:::ComponentLoader{label="PromptInput" componentName="PromptInput"}
+:::ComponentLoader{label="Preview" componentName="PromptInput"}
 :::
 
 ## Install using CLI

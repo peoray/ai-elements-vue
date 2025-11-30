@@ -1,25 +1,22 @@
 <!-- eslint-disable no-console -->
 <script lang="ts" setup>
+import type { PromptInputMessage } from '@repo/elements/prompt-input'
 import {
   PromptInput,
   PromptInputButton,
-  PromptInputModelSelect,
-  PromptInputModelSelectContent,
-  PromptInputModelSelectItem,
-  PromptInputModelSelectTrigger,
-  PromptInputModelSelectValue,
+  PromptInputFooter,
+  PromptInputProvider,
+  PromptInputSelect,
+  PromptInputSelectContent,
+  PromptInputSelectItem,
+  PromptInputSelectTrigger,
+  PromptInputSelectValue,
   PromptInputSubmit,
   PromptInputTextarea,
-  PromptInputToolbar,
   PromptInputTools,
 } from '@repo/elements/prompt-input'
-
-import {
-  Suggestion,
-  Suggestions,
-} from '@repo/elements/suggestion'
-
-import { Globe, Mic, Plus, Send } from 'lucide-vue-next'
+import { Suggestion, Suggestions } from '@repo/elements/suggestion'
+import { GlobeIcon, MicIcon, PlusIcon, SendIcon } from 'lucide-vue-next'
 import { nanoid } from 'nanoid'
 import { ref } from 'vue'
 
@@ -53,7 +50,7 @@ const defaultModel = ref(models[0].id)
 const text = ref('')
 const textareaRef = ref<HTMLTextAreaElement | null>(null)
 
-function handleSubmit(message: any) {
+function handleSubmit(message: PromptInputMessage) {
   const hasText = !!message.text
   const hasAttachments = !!(message.files?.length)
 
@@ -80,42 +77,44 @@ function handleSuggestionClick(suggestion: string) {
       />
     </Suggestions>
 
-    <PromptInput @submit="handleSubmit">
-      <PromptInputTextarea ref="textareaRef" v-model="text" placeholder="Ask me about anything..." />
+    <PromptInputProvider @submit="handleSubmit">
+      <PromptInput>
+        <PromptInputTextarea ref="textareaRef" v-model="text" placeholder="Ask me about anything..." />
 
-      <PromptInputToolbar>
-        <PromptInputTools>
-          <PromptInputButton>
-            <Plus class="size-4" />
-          </PromptInputButton>
-          <PromptInputButton>
-            <Mic class="size-4" />
-          </PromptInputButton>
-          <PromptInputButton>
-            <Globe class="size-4" />
-            <span>Search</span>
-          </PromptInputButton>
+        <PromptInputFooter>
+          <PromptInputTools>
+            <PromptInputButton>
+              <PlusIcon class="size-4" />
+            </PromptInputButton>
+            <PromptInputButton>
+              <MicIcon class="size-4" />
+            </PromptInputButton>
+            <PromptInputButton>
+              <GlobeIcon class="size-4" />
+              <span>Search</span>
+            </PromptInputButton>
 
-          <PromptInputModelSelect v-model="defaultModel">
-            <PromptInputModelSelectTrigger>
-              <PromptInputModelSelectValue />
-            </PromptInputModelSelectTrigger>
-            <PromptInputModelSelectContent>
-              <PromptInputModelSelectItem
-                v-for="model in models"
-                :key="model.id"
-                :value="model.id"
-              >
-                {{ model.name }}
-              </PromptInputModelSelectItem>
-            </PromptInputModelSelectContent>
-          </PromptInputModelSelect>
-        </PromptInputTools>
+            <PromptInputSelect v-model="defaultModel">
+              <PromptInputSelectTrigger>
+                <PromptInputSelectValue />
+              </PromptInputSelectTrigger>
+              <PromptInputSelectContent>
+                <PromptInputSelectItem
+                  v-for="model in models"
+                  :key="model.id"
+                  :value="model.id"
+                >
+                  {{ model.name }}
+                </PromptInputSelectItem>
+              </PromptInputSelectContent>
+            </PromptInputSelect>
+          </PromptInputTools>
 
-        <PromptInputSubmit :disabled="!text" :status="status">
-          <Send :size="32" />
-        </PromptInputSubmit>
-      </PromptInputToolbar>
-    </PromptInput>
+          <PromptInputSubmit :disabled="!text" :status="status">
+            <SendIcon :size="32" />
+          </PromptInputSubmit>
+        </PromptInputFooter>
+      </PromptInput>
+    </PromptInputProvider>
   </div>
 </template>

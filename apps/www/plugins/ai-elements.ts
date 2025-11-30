@@ -30,7 +30,7 @@ import {
   Sources,
   SourcesCustomRendering,
   Suggestion,
-  SuggestionAiInput,
+  SuggestionInput,
   Task,
   Tool,
   ToolInputAvailable,
@@ -62,7 +62,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   vueApp.component('SourcesCustomRendering', SourcesCustomRendering)
   vueApp.component('Task', Task)
   vueApp.component('Suggestion', Suggestion)
-  vueApp.component('SuggestionAiInput', SuggestionAiInput)
+  vueApp.component('SuggestionInput', SuggestionInput)
   vueApp.component('OpenInChat', OpenInChat)
   vueApp.component('Loader', Loader)
   vueApp.component('LoaderCustomStyling', LoaderCustomStyling)

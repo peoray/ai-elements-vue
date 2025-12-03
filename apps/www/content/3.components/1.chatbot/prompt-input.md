@@ -12,12 +12,12 @@ The `PromptInput` component allows a user to send a message with file attachment
 ## Install using CLI
 
 ::tabs{variant="card"}
-  ::div{label="ai-elements-vue"}
+  ::div{label="AI Elements Vue"}
   ```sh
   npx ai-elements-vue@latest add prompt-input
   ```
   ::
-  ::div{label="shadcn-vue"}
+  ::div{label="shadcn-vue CLI"}
 
   ```sh
   npx shadcn-vue@latest add https://registry.ai-elements-vue.com/prompt-input.json
@@ -30,7 +30,7 @@ The `PromptInput` component allows a user to send a message with file attachment
 Copy and paste the following code in the same folder.
 
 :::code-group
-```vue [PromptInputProvider.vue] height=300 collapse
+```vue [PromptInputProvider.vue] height=500 collapse
 <script setup lang="ts">
 import type { PromptInputMessage } from './types'
 import { usePromptInputProvider } from './context'
@@ -62,7 +62,7 @@ usePromptInputProvider({
 </template>
 ```
 
-```vue [PromptInput.vue] height=300 collapse
+```vue [PromptInput.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import type { PromptInputMessage } from './types'
@@ -178,7 +178,7 @@ function onSubmit(e: Event) {
 </template>
 ```
 
-```vue [PromptInputTextarea.vue] height=300 collapse
+```vue [PromptInputTextarea.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { InputGroupTextarea } from '@repo/shadcn-vue/components/ui/input-group'
@@ -255,7 +255,7 @@ const modelValue = computed({
 </template>
 ```
 
-```vue [PromptInputTools.vue] height=300 collapse
+```vue [PromptInputTools.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -270,7 +270,7 @@ const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </template>
 ```
 
-```vue [PromptInputButton.vue] height=300 collapse
+```vue [PromptInputButton.vue] height=500 collapse
 <script setup lang="ts">
 // import type { InputGroupButtonVariants } from '@repo/shadcn-vue/components/ui/input-group'
 import type { ChatStatus } from 'ai'
@@ -333,7 +333,7 @@ const { status, size, variant, class: _, ...restProps } = props
 </template>
 ```
 
-```vue [PromptInputSubmit.vue] height=300 collapse
+```vue [PromptInputSubmit.vue] height=500 collapse
 <script setup lang="ts">
 import type { ChatStatus } from 'ai'
 import type { HTMLAttributes } from 'vue'
@@ -393,7 +393,7 @@ const { status, size, variant, class: _, ...restProps } = props
 </template>
 ```
 
-```vue [PromptInputBody.vue] height=300 collapse
+```vue [PromptInputBody.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -408,7 +408,7 @@ const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </template>
 ```
 
-```vue [PromptInputAttachments.vue] height=300 collapse
+```vue [PromptInputAttachments.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -433,7 +433,7 @@ const { files } = usePromptInput()
 </template>
 ```
 
-```vue [PromptInputAttachment.vue] height=300 collapse
+```vue [PromptInputAttachment.vue] height=500 collapse
 <script setup lang="ts">
 import type { AttachmentFile } from './types'
 import { Button } from '@repo/shadcn-vue/components/ui/button'
@@ -529,7 +529,7 @@ function handleRemove(e: Event) {
 </template>
 ```
 
-```vue [PromptInputHeader.vue] height=300 collapse
+```vue [PromptInputHeader.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { InputGroupAddon } from '@repo/shadcn-vue/components/ui/input-group'
@@ -555,7 +555,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputFooter.vue] height=300 collapse
+```vue [PromptInputFooter.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { InputGroupAddon } from '@repo/shadcn-vue/components/ui/input-group'
@@ -581,7 +581,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputActionMenu.vue] height=300 collapse
+```vue [PromptInputActionMenu.vue]
 <script setup lang="ts">
 import { DropdownMenu } from '@repo/shadcn-vue/components/ui/dropdown-menu'
 
@@ -599,7 +599,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputActionMenuTrigger.vue] height=300 collapse
+```vue [PromptInputActionMenuTrigger.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { DropdownMenuTrigger } from '@repo/shadcn-vue/components/ui/dropdown-menu'
@@ -624,7 +624,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputActionMenuContent.vue] height=300 collapse
+```vue [PromptInputActionMenuContent.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { DropdownMenuContent } from '@repo/shadcn-vue/components/ui/dropdown-menu'
@@ -648,7 +648,7 @@ const { align, class: _, ...restProps } = props
 </template>
 ```
 
-```vue [PromptInputActionMenuItem.vue] height=300 collapse
+```vue [PromptInputActionMenuItem.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { DropdownMenuItem } from '@repo/shadcn-vue/components/ui/dropdown-menu'
@@ -670,7 +670,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputActionAddAttachments.vue] height=300 collapse
+```vue [PromptInputActionAddAttachments.vue]
 <script setup lang="ts">
 import { DropdownMenuItem } from '@repo/shadcn-vue/components/ui/dropdown-menu'
 import { ImageIcon } from 'lucide-vue-next'
@@ -689,7 +689,7 @@ const { openFileDialog } = usePromptInput()
 </template>
 ```
 
-```vue [PromptInputSpeechButton.vue] height=300 collapse
+```vue [PromptInputSpeechButton.vue] height=500 collapse
 <script setup lang="ts">
 import { InputGroupButton } from '@repo/shadcn-vue/components/ui/input-group'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -786,7 +786,7 @@ function toggleListening() {
 </template>
 ```
 
-```vue [PromptInputSelect.vue] height=300 collapse
+```vue [PromptInputSelect.vue]
 <script setup lang="ts">
 import { Select } from '@repo/shadcn-vue/components/ui/select'
 
@@ -804,7 +804,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputSelectTrigger.vue] height=300 collapse
+```vue [PromptInputSelectTrigger.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { SelectTrigger } from '@repo/shadcn-vue/components/ui/select'
@@ -833,7 +833,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputSelectContent.vue] height=300 collapse
+```vue [PromptInputSelectContent.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { SelectContent } from '@repo/shadcn-vue/components/ui/select'
@@ -855,7 +855,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputSelectItem.vue] height=300 collapse
+```vue [PromptInputSelectItem.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { SelectItem } from '@repo/shadcn-vue/components/ui/select'
@@ -877,7 +877,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputSelectValue.vue] height=300 collapse
+```vue [PromptInputSelectValue.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { SelectValue } from '@repo/shadcn-vue/components/ui/select'
@@ -899,7 +899,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputHoverCard.vue] height=300 collapse
+```vue [PromptInputHoverCard.vue]
 <script setup lang="ts">
 import { HoverCard } from '@repo/shadcn-vue/components/ui/hover-card'
 
@@ -925,7 +925,7 @@ const { openDelay, closeDelay, ...restProps } = props
 </template>
 ```
 
-```vue [PromptInputHoverCardTrigger.vue] height=300 collapse
+```vue [PromptInputHoverCardTrigger.vue]
 <script setup lang="ts">
 import { HoverCardTrigger } from '@repo/shadcn-vue/components/ui/hover-card'
 
@@ -943,7 +943,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputHoverCardContent.vue] height=300 collapse
+```vue [PromptInputHoverCardContent.vue]
 <script setup lang="ts">
 import { HoverCardContent } from '@repo/shadcn-vue/components/ui/hover-card'
 
@@ -965,7 +965,7 @@ const { align, ...restProps } = props
 </template>
 ```
 
-```vue [PromptInputTabsList.vue] height=300 collapse
+```vue [PromptInputTabsList.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -984,7 +984,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputTab.vue] height=300 collapse
+```vue [PromptInputTab.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -1003,7 +1003,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputTabLabel.vue] height=300 collapse
+```vue [PromptInputTabLabel.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -1022,7 +1022,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputTabBody.vue] height=300 collapse
+```vue [PromptInputTabBody.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -1041,7 +1041,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputTabItem.vue] height=300 collapse
+```vue [PromptInputTabItem.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -1060,7 +1060,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommand.vue] height=300 collapse
+```vue [PromptInputCommand.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { Command } from '@repo/shadcn-vue/components/ui/command'
@@ -1082,7 +1082,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandInput.vue] height=300 collapse
+```vue [PromptInputCommandInput.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandInput } from '@repo/shadcn-vue/components/ui/command'
@@ -1102,7 +1102,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandList.vue] height=300 collapse
+```vue [PromptInputCommandList.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandList } from '@repo/shadcn-vue/components/ui/command'
@@ -1122,7 +1122,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandEmpty.vue] height=300 collapse
+```vue [PromptInputCommandEmpty.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandEmpty } from '@repo/shadcn-vue/components/ui/command'
@@ -1144,7 +1144,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandGroup.vue] height=300 collapse
+```vue [PromptInputCommandGroup.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandGroup } from '@repo/shadcn-vue/components/ui/command'
@@ -1166,7 +1166,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandItem.vue] height=300 collapse
+```vue [PromptInputCommandItem.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandItem } from '@repo/shadcn-vue/components/ui/command'
@@ -1188,7 +1188,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```vue [PromptInputCommandSeparator.vue] height=300 collapse
+```vue [PromptInputCommandSeparator.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { CommandSeparator } from '@repo/shadcn-vue/components/ui/command'
@@ -1207,7 +1207,7 @@ const props = defineProps<Props>()
 </template>
 ```
 
-```ts [context.ts] height=300 collapse
+```ts [context.ts] height=500 collapse
 import type { AttachmentFile, PromptInputContext } from './types'
 import { nanoid } from 'nanoid'
 import { inject, onBeforeUnmount, provide, ref } from 'vue'
@@ -1401,7 +1401,7 @@ export function usePromptInput() {
 }
 ```
 
-```ts [types.ts] height=300 collapse
+```ts [types.ts] height=500 collapse
 import type { FileUIPart } from 'ai'
 import type { Ref } from 'vue'
 
@@ -1432,7 +1432,7 @@ export interface PromptInputContext {
 export const PROMPT_INPUT_KEY = Symbol('PromptInputContext')
 ```
 
-```ts [index.ts] height=300 collapse
+```ts [index.ts] height=500 collapse
 export * from './context'
 export { default as PromptInput } from './PromptInput.vue'
 export { default as PromptInputActionAddAttachments } from './PromptInputActionAddAttachments.vue'
@@ -1481,7 +1481,7 @@ Built a fully functional chat app using `PromptInput`, [`Conversation`](/compone
 
 Add the following component to your frontend:
 
-```vue [pages/index.vue] height=300 collapse
+```vue [pages/index.vue] height=500 collapse
 <script setup lang="ts">
 import type { PromptInputMessage } from '@/components/ai-elements/prompt-input'
 import { useChat } from '@ai-sdk/vue'
@@ -1648,7 +1648,7 @@ function handleSubmit(message: PromptInputMessage) {
 
 Add the following route to your backend:
 
-```ts [server/api/chat/route.ts] height=300 collapse
+```ts [server/api/chat.ts]
 import { convertToModelMessages, streamText, UIMessage } from 'ai'
 
 // Allow streaming responses up to 30 seconds

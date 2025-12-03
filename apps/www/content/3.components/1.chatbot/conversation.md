@@ -6,18 +6,18 @@ icon: lucide:message-square
 
 The `Conversation` component wraps messages and automatically scrolls to the bottom. Also includes a scroll button that appears when not at the bottom.
 
-:::ComponentLoader{label="Conversation" componentName="Conversation"}
+:::ComponentLoader{label="Preview" componentName="Conversation"}
 :::
 
 ## Install using CLI
 
 ::tabs{variant="card"}
-  ::div{label="ai-elements-vue"}
+  ::div{label="AI Elements Vue"}
   ```sh
   npx ai-elements-vue@latest add conversation
   ```
   ::
-  ::div{label="shadcn-vue"}
+  ::div{label="shadcn-vue CLI"}
 
   ```sh
   npx shadcn-vue@latest add https://registry.ai-elements-vue.com/conversation.json
@@ -30,7 +30,7 @@ The `Conversation` component wraps messages and automatically scrolls to the bot
 Copy and paste the following code in the same folder.
 
 :::code-group
-```vue [Conversation.vue] height=300 collapse
+```vue [Conversation.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<Props>(), {
 </template>
 ```
 
-```vue [ConversationContent.vue] height=300 collapse
+```vue [ConversationContent.vue]
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { computed } from 'vue'
@@ -98,7 +98,7 @@ const classes = computed(() => [
 </template>
 ```
 
-```vue [ConversationEmptyState.vue] height=300 collapse
+```vue [ConversationEmptyState.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@repo/shadcn-vue/lib/utils'
@@ -141,7 +141,7 @@ const props = withDefaults(defineProps<Props>(), {
 </template>
 ```
 
-```vue [ConversationScrollButton.vue] height=300 collapse
+```vue [ConversationScrollButton.vue] height=500 collapse
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { Button } from '@repo/shadcn-vue/components/ui/button'
@@ -192,7 +192,7 @@ Build a simple conversational UI with `Conversation` and [`PromptInput`](/compon
 
 Add the following component to your frontend:
 
-```vue [pages/index.vue] height=300 collapse
+```vue [pages/index.vue] height=500 collapse
 <script setup lang="ts">
 import { useChat } from '@ai-sdk/vue'
 import { ref } from 'vue'
@@ -257,7 +257,7 @@ function handleSubmit(e: Event) {
 
 Add the following route to your backend:
 
-```ts [server/api/chat/route.ts]
+```ts [server/api/chat/route.ts] height=500 collapse
 import { convertToModelMessages, streamText, UIMessage } from 'ai'
 
 // Allow streaming responses up to 30 seconds

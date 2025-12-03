@@ -272,57 +272,63 @@ const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 
 ```vue [PromptInputButton.vue] height=300 collapse
 <script setup lang="ts">
+// import type { InputGroupButtonVariants } from '@repo/shadcn-vue/components/ui/input-group'
+import type { ChatStatus } from 'ai'
 import type { HTMLAttributes } from 'vue'
 import { InputGroupButton } from '@repo/shadcn-vue/components/ui/input-group'
 import { cn } from '@repo/shadcn-vue/lib/utils'
-import { computed, useSlots } from 'vue'
+import { CornerDownLeftIcon, Loader2Icon, SquareIcon, XIcon } from 'lucide-vue-next'
+import { computed } from 'vue'
 
 type InputGroupButtonProps = InstanceType<typeof InputGroupButton>['$props']
 
 interface Props extends /* @vue-ignore */ InputGroupButtonProps {
   class?: HTMLAttributes['class']
+  status?: ChatStatus
   variant?: InputGroupButtonProps['variant']
   size?: InputGroupButtonProps['size']
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'ghost',
+  variant: 'default',
+  size: 'icon-sm',
 })
 
-const slots = useSlots()
-
-const computedSize = computed(() => {
-  if (props.size)
-    return props.size
-
-  const slotNodes = slots.default?.()
-
-  if (!slotNodes)
-    return 'icon-sm'
-
-  const validChildren = slotNodes.filter((node) => {
-    if (node.type === Comment)
-      return false
-    if (node.type === Text && !node.children?.toString().trim())
-      return false
-    return true
-  })
-
-  return validChildren.length > 1 ? 'sm' : 'icon-sm'
+const icon = computed(() => {
+  if (props.status === 'submitted') {
+    return Loader2Icon
+  }
+  else if (props.status === 'streaming') {
+    return SquareIcon
+  }
+  else if (props.status === 'error') {
+    return XIcon
+  }
+  return CornerDownLeftIcon
 })
 
-const { size, variant, class: _, ...restProps } = props
+const iconClass = computed(() => {
+  if (props.status === 'submitted') {
+    return 'size-4 animate-spin'
+  }
+  return 'size-4'
+})
+
+const { status, size, variant, class: _, ...restProps } = props
 </script>
 
 <template>
   <InputGroupButton
-    type="button"
-    :size="computedSize"
-    :class="cn($props.class)"
+    aria-label="Submit"
+    :class="cn(props.class)"
+    :size="size"
     :variant="variant"
+    type="submit"
     v-bind="restProps"
   >
-    <slot />
+    <slot>
+      <component :is="icon" :class="iconClass" />
+    </slot>
   </InputGroupButton>
 </template>
 ```
